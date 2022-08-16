@@ -1,6 +1,6 @@
-import { OrderController } from './controller/order.controller';
-import { ProductController } from './controller/product.controller';
-import { AuthController } from './controller/auth.controller';
+import { VocabularyController } from './controller/vocabulary';
+import { GrammarController } from './controller/grammar';
+import { EnglishAnyOneController } from './controller/english-anyone';
 import { Module } from '@nestjs/common';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
@@ -8,9 +8,9 @@ import { AppService } from './app.service';
 @Module({
   imports: [],
   controllers: [
-    OrderController,
-    ProductController,
-    AuthController,
+    VocabularyController,
+    GrammarController,
+    EnglishAnyOneController,
     AppController,
   ],
   providers: [AppService],

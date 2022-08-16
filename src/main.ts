@@ -1,5 +1,4 @@
 import 'dotenv/config';
-import { VersioningType } from '@nestjs/common';
 import { NestFactory } from '@nestjs/core';
 import {
   DocumentBuilder,
@@ -11,7 +10,6 @@ import { AppModule } from './app.module';
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
-  app.enableVersioning({ type: VersioningType.URI });
   const swaggerVariable = {
     title: 'Love spoonx',
     description: 'Love spoonx',
@@ -25,10 +23,9 @@ async function bootstrap() {
     .setTitle(swaggerVariable.title)
     .setDescription(swaggerVariable.description)
     .setVersion(swaggerVariable.version)
-    .addTag('open_api')
-    .addTag('open_api_auth')
-    .addTag('product')
-    .addTag('ordering')
+    .addTag('phrase')
+    .addTag('vocab')
+    .addTag('grammar')
     .addBasicAuth()
     .addBearerAuth()
     .addOAuth2()
@@ -59,20 +56,16 @@ async function bootstrap() {
     },
     tagGroups: [
       {
-        name: 'Auth',
-        tags: ['open_api_auth'],
+        name: 'Phrase builder',
+        tags: ['phrase'],
       },
       {
-        name: 'Open api',
-        tags: ['open_api'],
+        name: 'Vocabulary',
+        tags: ['vocab'],
       },
       {
-        name: 'Product api',
-        tags: ['product'],
-      },
-      {
-        name: 'Ordering api',
-        tags: ['ordering'],
+        name: 'Grammar',
+        tags: ['grammar'],
       },
     ],
   };
